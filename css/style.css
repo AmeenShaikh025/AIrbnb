@@ -261,7 +261,8 @@ header {
 .nav-colored .nav .nav__left svg path {
 	fill: var(--airbnb-color);
 }
-.nav-colored .nav .nav__center a {
+.nav-colored .nav .nav__center a,
+.nav .nav__center.show__nav a {
 	color: var(--text-color);
 }
 .nav-colored .nav .nav__right .dropdown__button i {

@@ -7,10 +7,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
 function scrollDetect(){
     var lastScroll = 0;
 
-    window.onscroll = function() {
-        
+    //window.addEventListener("scroll", throttle(callback, 1000));
+
+    // function throttle(fn, wait) {
+    //     var time = Date.now();
+    //     return function() {
+    //         if ((time + wait - Date.now()) < 0) {
+    //             fn();
+    //             time = Date.now();
+    //         }
+    //     }
+    // }
+
+    window.addEventListener('scroll', _.throttle(callback, 800, { trailing: true, leading: true }));
+
+
+    function callback() {
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
         
+        //console.log(currentScroll);
+
         if (currentScroll > 0 && lastScroll <= currentScroll){
             lastScroll = currentScroll;
             //console.log("Scrolling DOWN");
@@ -22,7 +38,6 @@ function scrollDetect(){
             nav.classList.add("show__nav");
             nav.classList.remove("hide__nav");
         }
-    };
-  }
-  
-  
+    }
+
+}
