@@ -27,7 +27,11 @@ body {
 	color: var(--body-color);
 	overflow-y: overlay;
 }
-body::-webkit-scrollbar {
+body::-webkit-scrollbar,
+.places .container-fluid .row::-webkit-scrollbar,
+.live__anywhere .row::-webkit-scrollbar,
+.explore .explore__card::-webkit-scrollbar,
+.explore .popular__places::-webkit-scrollbar {
 	display: none;
 }
 /* Common styles */
@@ -65,7 +69,7 @@ body::-webkit-scrollbar {
 	max-width: 100%;
 }
 .pt0 {
-	padding-top: 0;
+	padding-top: 0 !important;
 }
 .pb-0 {
 	padding-bottom: 0;
@@ -257,7 +261,8 @@ header {
 .nav-colored .nav .nav__left svg path {
 	fill: var(--airbnb-color);
 }
-.nav-colored .nav .nav__center a {
+.nav-colored .nav .nav__center a,
+.nav .nav__center.show__nav a {
 	color: var(--text-color);
 }
 .nav-colored .nav .nav__right .dropdown__button i {
@@ -676,7 +681,7 @@ footer .social__icons ul li {
 	font-size: 1.6rem;
 	margin: 0.3rem 0;
 }
-.explore .explore__card .card__details .location p:nth-of-type(2) {
+.explore .explore__card .card__details .location p:nth-of-type(n + 2) {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
@@ -727,6 +732,12 @@ footer .social__icons ul li {
 		font-size: 1rem;
 	}
 }
+@media (max-width: 768px) {
+	.explore .popular__places .col4 {
+		max-width: 50%;
+		flex: 0 0 50%;
+	}
+}
 @media (max-width: 767px) {
 	.d-md-none {
 		display: none;
@@ -751,15 +762,41 @@ footer .social__icons ul li {
 		flex: 0 0 50%;
 		margin-bottom: 1.5rem;
 	}
-	.places .container-fluid .col3 {
-		max-width: 33.333333%;
-		flex: 0 0 33.333333%;
-	}
-	.places .container-fluid .row {
+	.places .container-fluid .row,
+	.live__anywhere .row,
+	.explore .explore__card,
+	.explore .popular__places {
 		justify-content: flex-start;
+		flex-wrap: nowrap;
+		overflow: overlay;
+		white-space: nowrap;
+		scroll-snap-type: x mandatory;
+		scroll-padding: 30%;
+	}
+	.places .container-fluid .col3,
+	.live__anywhere .row .col3,
+	.explore .explore__card .col4,
+	.explore .popular__places .col4 {
+		max-width: 40%;
+		flex: 0 0 40%;
+		scroll-snap-align: start;
 	}
 	.meet .row .col6:nth-of-type(2) .row {
 		flex-direction: column;
+	}
+	.meet .row .col6:nth-of-type(2) .col6 .meet__content {
+		left: 0;
+		bottom: 1px;
+		right: 0;
+		width: 95%;
+		text-align: center;
+	}
+	.meet .row .col6:nth-of-type(1) .meet__content {
+		width: 100%;
+		bottom: 30px;
+	}
+	.explore .explore__cards h2 {
+		font-size: 2.8rem;
 	}
 }
 @media (max-width: 575px) {
@@ -775,10 +812,13 @@ footer .social__icons ul li {
 	.nav .nav__center .sub__nav .active-tab {
 		color: var(--airbnb-color);
 	}
-	.explore .explore__card .col4,
 	.explore .popular__places .col4 {
-		max-width: 100%;
-		flex: 0 0 100%;
+		max-width: 40%;
+		flex: 0 0 40%;
+	}
+	.explore .explore__card .col4 {
+		max-width: 48%;
+		flex: 0 0 48%;
 	}
 	footer .row:nth-of-type(1) {
 		padding-bottom: 0;
@@ -809,15 +849,12 @@ footer .social__icons ul li {
 		display: none;
 	}
 	.container-fluid {
-		padding: 4rem;
+		padding: 3rem;
 	}
-	.places .container-fluid .col3 {
-		max-width: 50%;
-		flex: 0 0 50%;
-	}
-	.live__anywhere .row .col3 {
-		flex: 0 0 50%;
-		max-width: 50%;
+	.live__anywhere .row .col3,
+	.live__anywhere .row .col4 {
+		flex: 0 0 75%;
+		max-width: 75%;
 		margin-bottom: 1rem;
 	}
 	.meet {
@@ -854,6 +891,10 @@ footer .social__icons ul li {
 		bottom: 1rem;
 		left: 1rem;
 	}
+	.places .container-fluid .col3 {
+		max-width: 45%;
+		flex: 0 0 45%;
+	}
 }
 @media (max-width: 480px) {
 	footer .row:nth-of-type(2) {
@@ -865,17 +906,41 @@ footer .social__icons ul li {
 		margin-bottom: 1rem;
 	}
 	footer .copyright__text,
-	footer .social__icons,
-	.live__anywhere .row .col4 {
+	footer .social__icons {
 		max-width: 100%;
 		flex: 0 0 100%;
 	}
-	.places .container-fluid .col3 {
-		max-width: 100%;
-		flex: 0 0 100%;
+	.live__anywhere .row .col4 {
+		flex: 0 0 75%;
+		max-width: 75%;
 	}
 	.meet img,
 	.meet .meet__header + .row .col6:nth-of-type(2) img {
 		width: 100%;
+	}
+	.meet .row .col6:nth-of-type(1) .meet__content {
+		bottom: 26px;
+		left: 5px;
+	}
+	.places .container-fluid .col3 {
+		max-width: 75%;
+		flex: 0 0 75%;
+	}
+	.explore .explore__card .col4 {
+		max-width: 65%;
+		flex: 0 0 65%;
+	}
+	.explore .popular__places .col4 {
+		max-width: 68%;
+		flex: 0 0 68%;
+	}
+}
+@media (max-width: 320px) {
+	.meet .row .col6:nth-of-type(2) .col6 .meet__content {
+		bottom: 22px;
+	}
+	.explore .explore__card .col4 {
+		max-width: 70%;
+		flex: 0 0 70%;
 	}
 }
