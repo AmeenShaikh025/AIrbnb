@@ -166,21 +166,27 @@ header {
 	object-fit: contain;
 	width: 150px;
 } */
-.nav .nav__center {
+.nav .nav__center,
+.nav .bottom__mobile__nav {
 	flex: 2;
 	text-align: center;
 	transition: all ease-in 0.3s;
 }
-.nav .nav__center a {
-	color: var(--white);
+.nav .nav__center a,
+.nav .bottom__mobile__nav a,
+.nav-colored .nav .nav__center.show__nav a,
+.nav-colored .nav .bottom__mobile__nav.show__nav a {
+	/* color: var(--white); */
 	font-size: 1.6rem;
 }
-.nav .nav__center .sub__nav {
+.nav .nav__center .sub__nav,
+.nav .bottom__mobile__nav .sub__nav {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 }
-.nav .nav__center .sub__nav a.d-block {
+.nav .nav__center .sub__nav a.d-block,
+.nav .bottom__mobile__nav .sub__nav a.d-block {
 	text-decoration: none;
 }
 .nav .nav__right {
@@ -261,8 +267,13 @@ header {
 .nav-colored .nav .nav__left svg path {
 	fill: var(--airbnb-color);
 }
+header .nav .nav__center a {
+	color: var(--white);
+}
 .nav-colored .nav .nav__center a,
-.nav .nav__center.show__nav a {
+.nav-colored .nav .bottom__mobile__nav a,
+.nav .nav__center.hide__nav a,
+.nav .bottom__mobile__nav.hide__nav a {
 	color: var(--text-color);
 }
 .nav-colored .nav .nav__right .dropdown__button i {
@@ -803,14 +814,22 @@ footer .social__icons ul li {
 	.d-block {
 		display: block;
 	}
+	.d-flex {
+		display: flex;
+	}
 	.d-none {
 		display: none;
 	}
-	.nav .nav__center {
+	.nav .nav__center,
+	.nav .bottom__mobile__nav {
 		border-top: 1px solid rgb(221, 221, 221) !important;
 	}
-	.nav .nav__center .sub__nav .active-tab {
+	.nav .nav__center .sub__nav .active-tab,
+	.nav .bottom__mobile__nav .sub__nav .active-tab {
 		color: var(--airbnb-color);
+	}
+	.bottom__mobile__nav a i {
+		color: var(--body-color);
 	}
 	.explore .popular__places .col4 {
 		max-width: 40%;
@@ -834,7 +853,7 @@ footer .social__icons ul li {
 		max-width: 40%;
 		flex: 0 0 40%;
 	}
-	.nav .nav__center {
+	.nav .bottom__mobile__nav {
 		position: fixed;
 		bottom: 0;
 		left: 0;
@@ -842,10 +861,16 @@ footer .social__icons ul li {
 		background-color: var(--white);
 		padding: 2rem;
 	}
-	.show__nav {
+	/* .show__nav {
+		display: block;
+	} */
+	.hide__nav {
+		display: none;
+	}
+	.show__bottom__nav {
 		display: block;
 	}
-	.hide__nav {
+	.hide__bottom__nav {
 		display: none;
 	}
 	.container-fluid {
