@@ -1,11 +1,11 @@
-var nav = document.querySelector(".nav__center");
+let nav = document.querySelector(".nav__center");
 
 window.addEventListener('DOMContentLoaded', (event) => {
     scrollDetect();
 });
 
 function scrollDetect(){
-    var lastScroll = 0;
+    let lastScroll = 0;
 
     window.addEventListener('scroll', _.throttle(callback, 800, { trailing: true, leading: true }));
 

@@ -1,13 +1,13 @@
 // Nav scroll 
-var header = document.querySelector('#header');
-var nav = document.querySelector(".nav__center");
+let header = document.querySelector('#header');
+let nav = document.querySelector(".nav__center");
 
 window.addEventListener('DOMContentLoaded', (event) => {
     scrollDetect();
 });
 
 function scrollDetect(){
-    var lastScroll = 0;
+    let lastScroll = 0;
 
 
     window
