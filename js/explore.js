@@ -1,8 +1,12 @@
 let nav = document.querySelector(".nav__center");
 let bottomNav = document.querySelector(".bottom__mobile__nav");
+let mapFrame = document.querySelector("#map");
 
 window.addEventListener('DOMContentLoaded', (event) => {
     scrollDetect();
+});
+window.addEventListener('DOMContentLoaded', (event) => {
+    addIframe();
 });
 
 function scrollDetect(){
@@ -33,4 +37,8 @@ function scrollDetect(){
         }
     }
 
+}
+
+function addIframe() {
+    mapFrame.setAttribute("src","https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3415558.652907079!2d77.37909911729892!3d15.01010069536179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1606193713215!5m2!1sen!2sin")
 }
