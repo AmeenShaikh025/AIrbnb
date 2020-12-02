@@ -8,7 +8,7 @@ document.querySelector(".dropdown__country").addEventListener("click", () => {
     document.querySelector(".dropdown__2").classList.remove("show");
 });
 
-document.querySelector(".dropdown__country > i").addEventListener("click", (event) => {
+document.querySelector(".dropdown__country > svg").addEventListener("click", (event) => {
     document.querySelector(".dropdown__1").classList.toggle("show");
     document.querySelector(".dropdown__2").classList.remove("show");
     event.stopPropagation();
@@ -18,7 +18,7 @@ document.querySelector(".dropdown__user").addEventListener("click", () => {
     document.querySelector(".dropdown__2").classList.toggle("show");
     document.querySelector(".dropdown__1").classList.remove("show");
 });
-document.querySelector(".dropdown__user > i").addEventListener("click", (event) => {
+document.querySelector(".dropdown__user > svg").addEventListener("click", (event) => {
     document.querySelector(".dropdown__2").classList.toggle("show");
     document.querySelector(".dropdown__1").classList.remove("show");
     event.stopPropagation();
