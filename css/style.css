@@ -48,6 +48,7 @@ body::-webkit-scrollbar,
 	font-size: 1.4rem;
 	transition: all ease-in 0.3s;
 	text-decoration: none;
+	font-family: "Roboto", sans-serif;
 }
 .btn:hover {
 	cursor: pointer;
