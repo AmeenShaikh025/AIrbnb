@@ -44,10 +44,12 @@ function scrollDetect(){
 
         // Bottom nav
         if(currentScroll < lastScroll) {
+            lastScroll = currentScroll;
             //console.log("Scrolling UP");
             bottomNav.classList.add("show__bottom__nav");
             bottomNav.classList.remove("hide__bottom__nav");
         } else {
+            lastScroll = currentScroll;
             //console.log("Scrolling DOWN");
             bottomNav.classList.add("hide__bottom__nav");
             bottomNav.classList.remove("show__bottom__nav");
