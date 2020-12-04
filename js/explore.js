@@ -20,21 +20,41 @@ function scrollDetect(){
         
         //console.log(currentScroll);
 
-        if (currentScroll > 0 && lastScroll <= currentScroll){
-            lastScroll = currentScroll;
-            //console.log("Scrolling DOWN");
+        // Top nav
+        if (currentScroll > 20) {
             nav.classList.add("hide__nav");
             nav.classList.remove("show__nav");
-            bottomNav.classList.add("hide__bottom__nav");
-            bottomNav.classList.remove("show__bottom__nav");
-        }else{
-            lastScroll = currentScroll;
-            //console.log("Scrolling UP");
+        } else {
             nav.classList.add("show__nav");
             nav.classList.remove("hide__nav");
+        }
+
+        // Bottom nav
+        if(currentScroll < lastScroll) {
+            //console.log("Scrolling UP");
             bottomNav.classList.add("show__bottom__nav");
             bottomNav.classList.remove("hide__bottom__nav");
+        } else {
+            //console.log("Scrolling DOWN");
+            bottomNav.classList.add("hide__bottom__nav");
+            bottomNav.classList.remove("show__bottom__nav");
         }
+
+        // if (currentScroll > 0 && lastScroll <= currentScroll){
+        //     lastScroll = currentScroll;
+        //     //console.log("Scrolling DOWN");
+        //     nav.classList.add("hide__nav");
+        //     nav.classList.remove("show__nav");
+        //     bottomNav.classList.add("hide__bottom__nav");
+        //     bottomNav.classList.remove("show__bottom__nav");
+        // }else{
+        //     lastScroll = currentScroll;
+        //     //console.log("Scrolling UP");
+        //     nav.classList.add("show__nav");
+        //     nav.classList.remove("hide__nav");
+        //     bottomNav.classList.add("show__bottom__nav");
+        //     bottomNav.classList.remove("hide__bottom__nav");
+        // }
     }
 
 }
