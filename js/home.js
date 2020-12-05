@@ -46,13 +46,13 @@ function scrollDetect(){
         if(currentScroll < lastScroll) {
             lastScroll = currentScroll;
             //console.log("Scrolling UP");
-            bottomNav.classList.add("show__bottom__nav");
-            bottomNav.classList.remove("hide__bottom__nav");
+            bottomNav.classList.add("scroll-up");
+            bottomNav.classList.remove("scroll-down");
         } else {
             lastScroll = currentScroll;
             //console.log("Scrolling DOWN");
-            bottomNav.classList.add("hide__bottom__nav");
-            bottomNav.classList.remove("show__bottom__nav");
+            bottomNav.classList.add("scroll-down");
+            bottomNav.classList.remove("scroll-up");
         }
 
         // if (currentScroll > 0 && lastScroll <= currentScroll){

@@ -937,6 +937,7 @@ footer .social__icons ul li {
 		right: 0;
 		background-color: var(--white);
 		padding: 2rem;
+		height: 70px;
 	}
 	/* .show__nav {
 		display: block;
@@ -944,12 +945,45 @@ footer .social__icons ul li {
 	.hide__nav {
 		display: none;
 	}
-	.show__bottom__nav {
-		display: block;
+
+	.scroll-down {
+		animation: scroll-down 0.3s linear both;
 	}
-	.hide__bottom__nav {
-		display: none;
+
+	.scroll-up {
+		animation: scroll-up 0.3s linear both;
 	}
+
+	@keyframes scroll-up {
+		0% {
+			visibility: hidden;
+			height: 0;
+		}
+
+		95% {
+			visibility: visible;
+			height: 70px;
+		}
+
+		/* Set height to 'auto' after animation for spacing showing form-invalid feedback message */
+		100% {
+			visibility: visible;
+			height: auto;
+		}
+	}
+
+	@keyframes scroll-down {
+		from {
+			visibility: visible;
+			height: 70px;
+		}
+
+		to {
+			visibility: hidden;
+			height: 0;
+		}
+	}
+
 	.container-fluid {
 		padding: 3rem;
 	}
