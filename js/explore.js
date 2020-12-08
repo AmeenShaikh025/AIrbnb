@@ -18,7 +18,7 @@ function scrollDetect(){
     function callback() {
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
         
-        console.log(currentScroll);
+        //console.log(currentScroll);
 
         // Top nav
         if (currentScroll > 20) {
