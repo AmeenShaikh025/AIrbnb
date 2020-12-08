@@ -12,13 +12,13 @@ window.addEventListener("load", (event) => {
 function scrollDetect(){
     let lastScroll = 0;
 
-    window.addEventListener('scroll', _.throttle(callback, 800, { trailing: true, leading: true }));
+    window.addEventListener('scroll', _.throttle(callback, 300, { trailing: true, leading: true }));
 
 
     function callback() {
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
         
-        //console.log(currentScroll);
+        console.log(currentScroll);
 
         // Top nav
         if (currentScroll > 20) {

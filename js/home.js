@@ -11,7 +11,7 @@ function scrollDetect(){
     let lastScroll = 0;
 
     window
-    .addEventListener('scroll', _.throttle(callback, 500, { trailing: true, leading: true }));
+    .addEventListener('scroll', _.throttle(callback, 300, { trailing: true, leading: true }));
 
     function callback() {
 
@@ -29,7 +29,7 @@ function scrollDetect(){
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
         
         //let bottomScroll = document.documentElement.scrollHeight - window.innerHeight + currentScroll;
-        // console.log("current scroll",currentScroll);
+        console.log("current scroll",currentScroll);
         // console.log("last scroll",lastScroll);
 
 
