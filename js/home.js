@@ -52,7 +52,7 @@ function scrollDetect(){
             //console.log("Scrolling UP");
             // bottomNav.classList.add("scroll-up");
             // bottomNav.classList.remove("scroll-down");
-            if(scrolledDistance <= 6 &&  scrolledDistance >= 5 ) {
+            if(scrolledDistance <= 6) {
                 console.log(scrolledDistance);
                 bottomNav.style.transform = "translateY(0)"
             }
@@ -62,7 +62,7 @@ function scrollDetect(){
             //console.log("Scrolling DOWN");
             // bottomNav.classList.add("scroll-down");
             // bottomNav.classList.remove("scroll-up");
-            if(scrolledDistance >= -6 && scrolledDistance <= -5 ) {
+            if(scrolledDistance >= -6) {
                 console.log(scrolledDistance);
                 bottomNav.style.transform = "translateY(100px)"
             }
