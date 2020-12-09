@@ -10,7 +10,7 @@ window.addEventListener("load", (event) => {
 });
 
 function scrollDetect(){
-    let lastScroll = 0;
+    let lastScroll = 0, scrolledDistance = 0;
 
     window.addEventListener('scroll', _.throttle(callback, 300, { trailing: true, leading: true }));
 
@@ -29,17 +29,29 @@ function scrollDetect(){
             nav.classList.remove("hide__nav");
         }
 
+        scrolledDistance = lastScroll-currentScroll;
+
         // Bottom nav
         if(currentScroll < lastScroll) {
             lastScroll = currentScroll;
             //console.log("Scrolling UP");
-            bottomNav.classList.add("scroll-up");
-            bottomNav.classList.remove("scroll-down");
-        } else {
+            if(scrolledDistance <= 6) {
+                bottomNav.style.transform = "translateY(0)"
+            }
+            // else {
+            //     bottomNav.style.transform = "translateY(100px)"
+            // }
+        }
+        else {
             lastScroll = currentScroll;
             //console.log("Scrolling DOWN");
-            bottomNav.classList.add("scroll-down");
-            bottomNav.classList.remove("scroll-up");
+            if(scrolledDistance >= -6) {
+                //console.log(scrolledDistance);
+                bottomNav.style.transform = "translateY(100px)"
+            } 
+            // else {
+            //     bottomNav.style.transform = "translateY(0)"
+            // }
         }
 
         // if (currentScroll > 0 && lastScroll <= currentScroll){
