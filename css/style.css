@@ -937,17 +937,12 @@ footer .social__icons ul li {
 		right: 0;
 		background-color: var(--white);
 		padding: 2rem;
+		height: 70px;
 	}
 	/* .show__nav {
 		display: block;
 	} */
 	.hide__nav {
-		display: none;
-	}
-	.show__bottom__nav {
-		display: block;
-	}
-	.hide__bottom__nav {
 		display: none;
 	}
 	.container-fluid {

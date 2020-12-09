@@ -42,3 +42,15 @@ window.addEventListener("click", (event) => {
 });
 
 
+// window.onscroll = function() {scrollFunction()};
+
+// function scrollFunction() {
+//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//     // document.getElementById("navbar").style.top = "0";
+//     console.log(document.body.scrollTop || document.documentElement.scrollTop);
+//     console.log();
+//   } else {
+//     // document.getElementById("navbar").style.top = "-50px";
+//     console.log(document.body.scrollTop || document.documentElement.scrollTop);
+// }
+// }

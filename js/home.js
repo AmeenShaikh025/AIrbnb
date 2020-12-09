@@ -8,14 +8,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function scrollDetect(){
-    let lastScroll = 0;
+    let lastScroll = 0, scrolledDistance = 0;
 
     window
-    .addEventListener('scroll', _.throttle(callback, 800, { trailing: true, leading: true }));
+    .addEventListener('scroll', _.throttle(callback, 300, { trailing: true, leading: true }));
 
     function callback() {
 
-        // Menu Bar
+        // Menu Bar background color
         if (document.body.scrollTop >= header.offsetHeight || document.documentElement.scrollTop >= header.offsetHeight ) {
             header.classList.add("nav-colored");
             header.classList.remove("nav-transparent");
@@ -28,22 +28,40 @@ function scrollDetect(){
 
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop; // Get Current Scroll Value
         
-        //console.log(currentScroll);
+        //let bottomScroll = document.documentElement.scrollHeight - window.innerHeight + currentScroll;
 
-        if (currentScroll > 0 && lastScroll <= currentScroll){
-            lastScroll = currentScroll;
-            //console.log("Scrolling DOWN");
+        // Top nav
+        if (currentScroll > 20) {
             nav.classList.add("hide__nav");
             nav.classList.remove("show__nav");
-            bottomNav.classList.add("hide__bottom__nav");
-            bottomNav.classList.remove("show__bottom__nav");
-        }
-        else{
-            lastScroll = currentScroll;
+        } else {
             nav.classList.add("show__nav");
             nav.classList.remove("hide__nav");
-            bottomNav.classList.add("show__bottom__nav");
-            bottomNav.classList.remove("hide__bottom__nav");
+        }
+
+        scrolledDistance = lastScroll-currentScroll;
+
+        // Bottom nav
+        if(currentScroll < lastScroll) {
+            lastScroll = currentScroll;
+            //console.log("Scrolling UP");
+            if(scrolledDistance <= 6) {
+                bottomNav.style.transform = "translateY(0)"
+            }
+            // else {
+            //     bottomNav.style.transform = "translateY(100px)"
+            // }
+        }
+        else {
+            lastScroll = currentScroll;
+            //console.log("Scrolling DOWN");
+            if(scrolledDistance >= -6) {
+                //console.log(scrolledDistance);
+                bottomNav.style.transform = "translateY(100px)"
+            }
+            // else {
+            //     bottomNav.style.transform = "translateY(0)"
+            // }
         }
     }
 
